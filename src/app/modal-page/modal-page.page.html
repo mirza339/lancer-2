@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add card details to pay ${{ amount }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label position="floating">Card Number</ion-label>
+        <ion-input type="number" [(ngModel)]="cardDetails.number"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label>Cvv</ion-label>
+        <ion-input type="number" [(ngModel)]="cardDetails.cvv"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label>Expiry Month</ion-label>
+        <ion-input type="number" [(ngModel)]="cardDetails.month"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label>Expiry Year</ion-label>
+        <ion-input type="number" [(ngModel)]="cardDetails.year"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="scan()" shape="round" expand="full" color="dark">Scan card</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="submitCard()" shape="round" expand="full" color="success">Pay ${{ amount }}</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-col size="3">
+
+  </ion-col>
+</ion-content>

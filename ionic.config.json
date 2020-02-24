@@ -1,0 +1,8 @@
+{
+  "name": "lancer",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

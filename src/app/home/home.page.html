@@ -1,0 +1,388 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6">
+        <ion-title>
+          Donation app 12
+        </ion-title>
+      </ion-col>
+      <ion-col size="2" offset="4" (click)="updateBackground()">
+        <ion-icon name="image-outline" style="font-size: 40px"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen style="background: linear-gradient(87deg, #1B341E 0, #10641A 100%) !important; min-height: 100%;">
+<!--  <ion-header collapse="condense">-->
+<!--    <ion-toolbar>-->
+<!--      <ion-title size="large">Blank</ion-title>-->
+<!--    </ion-toolbar>-->
+<!--  </ion-header>-->
+
+<!--  <div id="container">-->
+<!--    <strong>Ready to create an app?</strong>-->
+<!--    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>-->
+<!--  </div>-->
+<!--  <div [style]="min-height: 100%; background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png');">-->
+  <div [style.backgroundImage]="'url(' + backgroundImg + ')'" style="min-height: 100%!important;">
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9">
+            <ion-item style="border-radius: 17px;">
+              <ion-label position="floating">Amount</ion-label>
+              <ion-input type="number" [(ngModel)]="amount"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="3">
+            <ion-toolbar>
+              <ion-buttons slot="start" style="background-color: rebeccapurple;border-radius: 17px;">
+                <ion-button (click)="submitAmount()">
+                  <ion-icon slot="icon-only" name="checkmark-done-outline" color="success"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10" offset="1">
+            <ion-row>
+              <ion-col size="2" class="main-button">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center" (click)="updateAmount(5)">
+                    <img src="assets/buttons/5.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="2" offset="2" class="main-button" (click)="updateAmount(15)">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center">
+                    <img src="assets/buttons/15.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="2" offset="2" class="main-button" (click)="updateAmount(20)">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center">
+                    <img src="assets/buttons/20.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10" offset="1">
+            <ion-row>
+              <ion-col size="2" class="main-button" (click)="updateAmount(50)">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center">
+                    <img src="assets/buttons/50.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="2" offset="2" class="main-button" (click)="updateAmount(100)">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center">
+                    <img src="assets/buttons/100.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col size="2" offset="2" class="main-button">
+                <ion-row>
+                  <ion-col offset="1" class="ion-text-center">
+                    <img src="assets/buttons/custom.png" class="dollar-img">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+<!--        <ion-row>-->
+<!--          <ion-col size="6" *ngIf="amount === 5" (click)="updateAmount(5)" class="ion-text-center">-->
+<!--            <img src="assets/buttons/5.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 5" (click)="updateAmount(5)">-->
+<!--            <img src="assets/buttons/5.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount === 10" (click)="updateAmount(10)">-->
+<!--            <img src="assets/buttons/10.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 10" (click)="updateAmount(10)">-->
+<!--            <img src="assets/buttons/10.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="6" *ngIf="amount === 15" (click)="updateAmount(15)">-->
+<!--            <img src="assets/buttons/15.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 15" (click)="updateAmount(15)">-->
+<!--            <img src="assets/buttons/15.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount === 20" (click)="updateAmount(20)">-->
+<!--            <img src="assets/buttons/20.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 20" (click)="updateAmount(20)">-->
+<!--            <img src="assets/buttons/20.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="6" *ngIf="amount === 50" (click)="updateAmount(50)">-->
+<!--            <img src="assets/buttons/50.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 50" (click)="updateAmount(50)">-->
+<!--            <img src="assets/buttons/50.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount === 75" (click)="updateAmount(75)">-->
+<!--            <img src="assets/buttons/75.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6" *ngIf="amount != 75" (click)="updateAmount(75)">-->
+<!--            <img src="assets/buttons/75.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="12" *ngIf="amount === 100" (click)="updateAmount(100)">-->
+<!--            <img src="assets/buttons/100.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="12" *ngIf="amount != 100" (click)="updateAmount(100)">-->
+<!--            <img src="assets/buttons/100.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="12" *ngIf="amount !=5 && amount != 10 && amount != 15 && amount != 20 && amount != 75 && amount != 100">-->
+<!--            <img src="assets/buttons/custom.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--          <ion-col size="12" *ngIf="amount === 5 || amount === 10 || amount === 15 || amount === 20 || amount === 75 || amount === 100">-->
+<!--            <img src="assets/buttons/custom.png" style="border: 2px solid; height: 150px; border-radius: 20px">-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="3">-->
+<!--            <ion-button (click)="updateAmount(5)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 5">-->
+<!--              <img src="assets/dollar.png">5-->
+<!--            </ion-button>-->
+<!--            <ion-button (click)="updateAmount(5)" shape="round" expand="full" color="dark" *ngIf="amount != 5"><ion-icon name="logo-usd"></ion-icon> 5</ion-button>-->
+<!--          </ion-col>-->
+<!--          <ion-col size="6">-->
+<!--            <ion-button (click)="updateAmount(10)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 10">$10</ion-button>-->
+<!--            <ion-button (click)="updateAmount(10)" shape="round" expand="full" color="tertiary" *ngIf="amount != 10">$10</ion-button>-->
+<!--          </ion-col>-->
+<!--          <ion-col size="3">-->
+<!--            <ion-button (click)="updateAmount(15)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 15">$15</ion-button>-->
+<!--            <ion-button (click)="updateAmount(15)" shape="round" expand="full" color="dark" *ngIf="amount != 15">-->
+<!--              <img src="assets/dollar2.png">15-->
+<!--            </ion-button>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="5">-->
+<!--            <ion-button (click)="updateAmount(20)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 20">$20</ion-button>-->
+<!--            <ion-button (click)="updateAmount(20)" shape="round" expand="full" color="tertiary" *ngIf="amount != 20">$20</ion-button>-->
+<!--          </ion-col>-->
+<!--          <ion-col size="2">-->
+<!--            <ion-button (click)="updateAmount(75)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 75">$75</ion-button>-->
+<!--            <ion-button (click)="updateAmount(75)" shape="round" expand="full" color="dark" *ngIf="amount != 75">$75</ion-button>-->
+<!--          </ion-col>-->
+<!--          <ion-col size="5">-->
+<!--            <ion-button (click)="updateAmount(100)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 100">$100</ion-button>-->
+<!--            <ion-button (click)="updateAmount(100)" shape="round" expand="full" color="tertiary" *ngIf="amount != 100">$100</ion-button>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="12">-->
+<!--            <ion-button shape="round" expand="full" color="tertiary" *ngIf="amount !=5 && amount != 10 && amount != 15 && amount != 20 && amount != 75 && amount != 100" style="border: solid 2px; border-color: black; border-radius: 40px;">Custom</ion-button>-->
+<!--            <ion-button shape="round" expand="full" color="tertiary" *ngIf="amount === 5 || amount === 10 || amount === 15 || amount === 20 || amount === 75 || amount === 100">Custom</ion-button>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+      </ion-grid>
+    </div>
+  </div>
+<!--  <div [style.backgroundImage]="'url(' + backgroundImg + ')'" style="min-height: 100%!important;">-->
+<!--    <div>-->
+<!--      <ion-grid>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="9">-->
+<!--            <ion-item style="border-radius: 17px;">-->
+<!--              <ion-label position="floating">Amount</ion-label>-->
+<!--              <ion-input type="number" [(ngModel)]="amount"></ion-input>-->
+<!--            </ion-item>-->
+<!--          </ion-col>-->
+<!--          <ion-col size="3">-->
+<!--            <ion-toolbar>-->
+<!--              <ion-buttons slot="start" style="background-color: rebeccapurple;border-radius: 17px;">-->
+<!--                <ion-button (click)="submitAmount()">-->
+<!--                  <ion-icon slot="icon-only" name="checkmark-done-outline" color="success"></ion-icon>-->
+<!--                </ion-button>-->
+<!--              </ion-buttons>-->
+<!--            </ion-toolbar>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="10" offset="1">-->
+<!--            <ion-row>-->
+<!--              <ion-col size="2" class="main-button">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center" (click)="updateAmount(5)">-->
+<!--                    <img src="assets/buttons/5.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button" (click)="updateAmount(10)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/10.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button" (click)="updateAmount(15)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/15.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button" (click)="updateAmount(20)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/20.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--            </ion-row>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--        <ion-row>-->
+<!--          <ion-col size="10" offset="1">-->
+<!--            <ion-row>-->
+<!--              <ion-col size="2" class="main-button" (click)="updateAmount(50)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/50.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button" (click)="updateAmount(75)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/75.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button" (click)="updateAmount(100)">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/100.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--              <ion-col size="2" offset="1" class="main-button">-->
+<!--                <ion-row>-->
+<!--                  <ion-col offset="1" class="ion-text-center">-->
+<!--                    <img src="assets/buttons/custom.png" class="dollar-img">-->
+<!--                  </ion-col>-->
+<!--                </ion-row>-->
+<!--              </ion-col>-->
+<!--            </ion-row>-->
+<!--          </ion-col>-->
+<!--        </ion-row>-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 5" (click)="updateAmount(5)" class="ion-text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/5.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 5" (click)="updateAmount(5)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/5.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 10" (click)="updateAmount(10)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/10.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 10" (click)="updateAmount(10)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/10.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 15" (click)="updateAmount(15)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/15.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 15" (click)="updateAmount(15)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/15.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 20" (click)="updateAmount(20)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/20.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 20" (click)="updateAmount(20)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/20.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 50" (click)="updateAmount(50)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/50.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 50" (click)="updateAmount(50)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/50.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount === 75" (click)="updateAmount(75)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/75.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6" *ngIf="amount != 75" (click)="updateAmount(75)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/75.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="12" *ngIf="amount === 100" (click)="updateAmount(100)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/100.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="12" *ngIf="amount != 100" (click)="updateAmount(100)">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/100.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="12" *ngIf="amount !=5 && amount != 10 && amount != 15 && amount != 20 && amount != 75 && amount != 100">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/custom.png" style="border: 2px solid; color: green; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="12" *ngIf="amount === 5 || amount === 10 || amount === 15 || amount === 20 || amount === 75 || amount === 100">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img src="assets/buttons/custom.png" style="border: 2px solid; height: 150px; border-radius: 20px">&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="3">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(5)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 5">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img src="assets/dollar.png">5&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(5)" shape="round" expand="full" color="dark" *ngIf="amount != 5"><ion-icon name="logo-usd"></ion-icon> 5</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="6">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(10)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 10">$10</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(10)" shape="round" expand="full" color="tertiary" *ngIf="amount != 10">$10</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="3">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(15)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 15">$15</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(15)" shape="round" expand="full" color="dark" *ngIf="amount != 15">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img src="assets/dollar2.png">15&ndash;&gt;-->
+<!--&lt;!&ndash;            </ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="5">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(20)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 20">$20</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(20)" shape="round" expand="full" color="tertiary" *ngIf="amount != 20">$20</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="2">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(75)" shape="round" expand="full" color="dark" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 75">$75</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(75)" shape="round" expand="full" color="dark" *ngIf="amount != 75">$75</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="5">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(100)" shape="round" expand="full" color="tertiary" style="border: solid 2px; border-color: black; border-radius: 40px;" *ngIf="amount === 100">$100</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button (click)="updateAmount(100)" shape="round" expand="full" color="tertiary" *ngIf="amount != 100">$100</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ion-row>&ndash;&gt;-->
+<!--&lt;!&ndash;          <ion-col size="12">&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button shape="round" expand="full" color="tertiary" *ngIf="amount !=5 && amount != 10 && amount != 15 && amount != 20 && amount != 75 && amount != 100" style="border: solid 2px; border-color: black; border-radius: 40px;">Custom</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ion-button shape="round" expand="full" color="tertiary" *ngIf="amount === 5 || amount === 10 || amount === 15 || amount === 20 || amount === 75 || amount === 100">Custom</ion-button>&ndash;&gt;-->
+<!--&lt;!&ndash;          </ion-col>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ion-row>&ndash;&gt;-->
+<!--      </ion-grid>-->
+<!--    </div>-->
+<!--  </div>-->
+</ion-content>
